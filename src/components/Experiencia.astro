@@ -1,0 +1,44 @@
+---
+import ExperienceItem from "./ExperienciaItems.astro";
+
+const experiences = [
+  {
+    title: "Gestor de emergencias",
+    company: "Ferrovial - 112 Andalucía",
+    date: "Nov 2016 – Sep 2023 | Sevilla",
+    description:
+      "Gestión de emergencias y coordinación de equipos en situaciones críticas, desarrollando habilidades de organización, comunicación y toma de decisiones bajo presión.",
+  },
+  {
+    title: "Manutentionnaire",
+    company: "Yves Saint Laurent | Caméléons",
+    date: "Nov 2023 – Dec 2023 | París",
+    description:
+      "Trabajo en logística y almacenamiento, fomentando precisión y disciplina en un entorno profesional de lujo.",
+  },
+  {
+    title: "Instructor de esquí alpino",
+    company: "Escuela Nacional de Esquí Sierra Nevada",
+    date: "Inviernos 2020 – 2025",
+    description:
+      "Impartición de clases de esquí alpino de diferentes niveles, adaptando técnicas de enseñanza para cada estudiante y asegurando su progreso y seguridad.",
+  },
+  {
+    title: "Conseiller de vente",
+    company: "Adidas & Reebok",
+    date: "Nov 2016 – Nov 2017 | Sevilla",
+    description:
+      "Atención al cliente y ventas, desarrollando habilidades de comunicación, negociación y trabajo en equipo.",
+  },
+];
+---
+
+<ol class="items-center sm:flex flex-col gap-6">
+  {
+    experiences.map((exp) => (
+      <li class="relative">
+        <ExperienceItem {...exp} />
+      </li>
+    ))
+  }
+</ol>
