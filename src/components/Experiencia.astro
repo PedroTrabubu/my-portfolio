@@ -3,41 +3,42 @@ import ExperienceItem from "./ExperienciaItems.astro";
 
 const experiences = [
   {
-    title: "Gestor de emergencias",
-    company: "Ferrovial - 112 Andalucía",
-    date: "Nov 2016 – Sep 2023 | Sevilla",
-    description:
-      "Gestión de emergencias y coordinación de equipos en situaciones críticas, desarrollando habilidades de organización, comunicación y toma de decisiones bajo presión.",
-  },
-  {
-    title: "Manutentionnaire",
-    company: "Yves Saint Laurent | Caméléons",
-    date: "Nov 2023 – Dec 2023 | París",
-    description:
-      "Trabajo en logística y almacenamiento, fomentando precisión y disciplina en un entorno profesional de lujo.",
-  },
-  {
-    title: "Instructor de esquí alpino",
-    company: "Escuela Nacional de Esquí Sierra Nevada",
-    date: "Inviernos 2020 – 2025",
-    description:
-      "Impartición de clases de esquí alpino de diferentes niveles, adaptando técnicas de enseñanza para cada estudiante y asegurando su progreso y seguridad.",
-  },
-  {
-    title: "Conseiller de vente",
+    title: "Vendedor",
     company: "Adidas & Reebok",
     date: "Nov 2016 – Nov 2017 | Sevilla",
     description:
       "Atención al cliente y ventas, desarrollando habilidades de comunicación, negociación y trabajo en equipo.",
   },
+
+  {
+    title: "Gestor de emergencias",
+    company: "Junta de Andalucía - 112 Andalucía",
+    date: "Nov 2016 – Sep 2023 | Sevilla",
+    description:
+      "Gestor de emergencias. Coordinación y respuesta rápida ante situaciones de emergencia, gestionando recursos y comunicación efectiva con los usuarios.",
+  },
+  {
+    title: "Mozo de almacén",
+    company: "Yves Saint Laurent",
+    date: "Nov 2023 – Dec 2023 | París",
+    description:
+      "Trabajo en logística, gestion de inventarios y preparación de pedidos. Trabajo en equipo desarrollado integramente en francés.",
+  },
+  {
+    title: "Instructor de esquí alpino",
+    company: "Escuela Nacional de Esquí Sierra Nevada",
+    date: "Inviernos 2020 – Actualidad",
+    description:
+      "Impartición de clases de esquí alpino de diferentes niveles, adaptando técnicas de enseñanza para cada estudiante y asegurando su progreso y seguridad.",
+  },
 ];
 ---
 
-<ol class="items-center sm:flex flex-col gap-6">
+<ol class="items-center sm:flex">
   {
-    experiences.map((exp) => (
-      <li class="relative">
-        <ExperienceItem {...exp} />
+    experiences.map((exp, index) => (
+      <li class="relative mb-6 sm:mb-0">
+        <ExperienceItem {...exp} isLast={index === experiences.length - 1} />
       </li>
     ))
   }

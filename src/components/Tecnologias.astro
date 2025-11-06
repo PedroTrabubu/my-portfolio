@@ -1,0 +1,119 @@
+---
+type Tecnologia = {
+  name: string;
+  src?: string;
+  srcLight?: string;
+  srcDark?: string;
+};
+
+const categorias: { title: string; items: Tecnologia[] }[] = [
+  {
+    title: "Lenguajes de programación",
+    items: [
+      { name: "Java", src: "/IconosTecnologias/java.svg" },
+      { name: "Python", src: "/IconosTecnologias/python.svg" },
+      { name: "JavaScript", src: "/IconosTecnologias/javascript.svg" },
+      { name: "TypeScript", src: "/IconosTecnologias/typescript.svg" },
+    ],
+  },
+  {
+    title: "Desarrollo Frontend",
+    items: [
+      { name: "HTML5", src: "/IconosTecnologias/html5.svg" },
+      { name: "CSS3", src: "/IconosTecnologias/css_old.svg" },
+      { name: "Angular", src: "/IconosTecnologias/angular.svg" },
+      {
+        name: "React",
+        srcLight: "/IconosTecnologias/react_light.svg",
+        srcDark: "/IconosTecnologias/react_dark.svg",
+      },
+      { name: "Bootstrap", src: "/IconosTecnologias/bootstrap.svg" },
+      { name: "Firebase", src: "/IconosTecnologias/firebase.svg" },
+    ],
+  },
+  {
+    title: "Desarrollo Backend",
+    items: [
+      { name: "Spring", src: "/IconosTecnologias/spring.svg" },
+      { name: "Docker", src: "/IconosTecnologias/docker.svg" },
+      {
+        name: "Tomcat",
+        src: "/IconosTecnologias/apachetomcat-svgrepo-com.svg",
+      },
+      {
+        name: "MySQL",
+        srcLight: "/IconosTecnologias/mysql-wordmark-light.svg",
+        srcDark: "/IconosTecnologias/mysql-wordmark-dark.svg",
+      },
+      {
+        name: "MongoDB",
+        srcLight: "/IconosTecnologias/mongodb-wordmark-light.svg",
+        srcDark: "/IconosTecnologias/mongodb-wordmark-dark.svg",
+      },
+    ],
+  },
+  {
+    title: "Herramientas & Otros",
+    items: [
+      { name: "Git", src: "/IconosTecnologias/git.svg" },
+      {
+        name: "GitHub",
+        srcLight: "/IconosTecnologias/github_wordmark_light.svg",
+        srcDark: "/IconosTecnologias/github_wordmark_dark.svg",
+      },
+      {
+        name: "UML",
+        src: "/IconosTecnologias/Unified Modelling Language (UML).svg",
+      },
+      { name: "Postman", src: "/IconosTecnologias/postman.svg" },
+    ],
+  },
+];
+---
+
+<section id="tecnologias" class="w-full mt-20">
+  <h4 class="text-2xl font-semibold mb-10 text-gray-900 dark:text-white">
+    Tecnologías
+  </h4>
+
+  <div class="flex flex-col gap-10">
+    {
+      categorias.map((cat) => (
+        <div class="p-4 rounded-xl bg-gray-50 dark:bg-gray-900 shadow-sm">
+          <h5 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-300 text-center">
+            {cat.title}
+          </h5>
+          <div class="flex flex-wrap justify-center gap-6">
+            {cat.items.map((tech: Tecnologia) => (
+              <div class="flex flex-col items-center group">
+                {tech.srcLight ? (
+                  <>
+                    <img
+                      src={tech.srcLight}
+                      alt={tech.name}
+                      class="w-16 h-16 object-contain dark:hidden transition-transform duration-500 ease-in-out transform group-hover:scale-125 group-hover:-translate-y-2 group-hover:rotate-6"
+                    />
+                    <img
+                      src={tech.srcDark}
+                      alt={tech.name}
+                      class="w-16 h-16 object-contain hidden dark:block transition-transform duration-500 ease-in-out transform group-hover:scale-125 group-hover:-translate-y-2 group-hover:rotate-6"
+                    />
+                  </>
+                ) : (
+                  <img
+                    src={tech.src}
+                    alt={tech.name}
+                    class="w-16 h-16 object-contain transition-transform duration-500 ease-in-out transform group-hover:scale-125 group-hover:-translate-y-2 group-hover:rotate-6"
+                  />
+                )}
+                <span class="mt-2 text-sm text-gray-600 dark:text-gray-400 group-hover:text-green-500 transition-colors duration-300">
+                  {tech.name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

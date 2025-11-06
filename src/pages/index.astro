@@ -5,6 +5,8 @@ import LinkedInIcon from "../icons/LinkedIn.astro";
 import Gmail from "../icons/Gmail.astro";
 import GitHub from "../icons/GitHub.astro";
 import Experiencia from "../components/Experiencia.astro";
+import BriefCase from "../icons/BriefCase.astro";
+import Tecnologias from "../components/Tecnologias.astro";
 ---
 
 <Layout
@@ -12,12 +14,13 @@ import Experiencia from "../components/Experiencia.astro";
   description="Portfolio de Pedro Blanquer, desarrollador Full Stack Junior con pasión por la tecnología. Descubre mis proyectos, habilidades y experiencia profesional."
 />
 <main
-  class="min-h-screen flex items-center justify-center px-6 py-16 dark:bg-gray-950"
+  class="min-h-screen flex flex-col items-center justify-center px-6 py-16 dark:bg-gray-950"
 >
+  <!-- Hero -->
   <div
     class="flex flex-col md:flex-row items-center md:items-start max-w-6xl w-full gap-12 relative"
   >
-    <!-- Imagen a la izquierda -->
+    <!-- Imagen -->
     <div
       class="relative flex-shrink-0 md:w-1/3 flex justify-center md:justify-start"
     >
@@ -28,14 +31,15 @@ import Experiencia from "../components/Experiencia.astro";
       />
     </div>
 
-    <!-- Texto a la derecha -->
+    <!-- Texto + botones -->
     <div class="md:w-2/3 text-center md:text-left">
       <div class="flex flex-col items-center md:items-start gap-2">
         <h1
           class="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-white flex items-center gap-3"
         >
-          ¡Hola! Soy
-          <span class="text-green-600 dark:text-green-300">Pedro Blanquer</span>
+          ¡Hola! Soy <span class="text-green-600 dark:text-green-300"
+            >Pedro Blanquer</span
+          >
         </h1>
       </div>
 
@@ -52,8 +56,8 @@ import Experiencia from "../components/Experiencia.astro";
         mi visión humana con habilidades técnicas para crear experiencias digitales
         centradas en las personas.
       </p>
+
       <ul class="flex flex-col items-left gap-4 mt-10">
-        <!-- Botones principales -->
         <li class="flex flex-wrap justify-center gap-4">
           <!-- LinkedIn -->
           <a
@@ -65,7 +69,6 @@ import Experiencia from "../components/Experiencia.astro";
             <LinkedInIcon class="w-5 h-5 fill-white" />
             <span>LinkedIn</span>
           </a>
-
           <!-- Email -->
           <a
             href="mailto:pedro.blanquer.cerro@gmail.com"
@@ -74,7 +77,6 @@ import Experiencia from "../components/Experiencia.astro";
             <Gmail class="w-5 h-5 text-green-600 dark:text-green-300" />
             <span>Contáctame</span>
           </a>
-
           <!-- GitHub -->
           <a
             href="https://github.com/PedroTrabubu"
@@ -86,7 +88,6 @@ import Experiencia from "../components/Experiencia.astro";
             <span>GitHub</span>
           </a>
         </li>
-
         <!-- Badge centrado debajo de los botones -->
         <li>
           <a href="#" class="inline-flex justify-center w-full mt-4">
@@ -96,7 +97,20 @@ import Experiencia from "../components/Experiencia.astro";
       </ul>
     </div>
   </div>
-  <section id="experiencia">
+
+  <Tecnologias />
+
+  <section id="experiencia" class="w-full mt-20">
+    <div class="flex items-center gap-3 mb-8">
+      <BriefCase class="w-12 h-12 text-green-600/60 dark:text-green-300/60" />
+
+      <h2
+        class="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 dark:text-white"
+      >
+        Experiencia laboral
+      </h2>
+    </div>
+
     <Experiencia />
   </section>
 </main>
