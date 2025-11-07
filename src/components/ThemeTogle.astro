@@ -1,7 +1,7 @@
 ---
 import SunIcon from "/public/sun.svg";
-import MoonIcon from "/public/moon.svg";
-import SystemIcon from "/public/system.svg";
+import MoonIcon from "/public/moonwhite.svg";
+import SystemIcon from "/public/systemblue.svg";
 const THEMES = ["Light", "Dark", "System"];
 ---
 
@@ -30,7 +30,7 @@ const THEMES = ["Light", "Dark", "System"];
     <ul>
       {
         THEMES.map((theme) => (
-          <li class="themes-menu-option px-2 py-1.5 cursor-default hover:bg-neutral-400/40 dark:hover:bg-gray-500/50 rounded-sm">
+          <li class="themes-menu-option text-lg px-2 py-1.5 cursor-pointer hover:bg-neutral-400/40 dark:hover:bg-gray-500/50 rounded-sm">
             {theme}
           </li>
         ))
