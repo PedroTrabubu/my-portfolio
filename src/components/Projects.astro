@@ -1,0 +1,124 @@
+---
+import GitHub from "../icons/GitHub.astro";
+import NextJS from "../icons/GitHub.astro";
+import Tailwind from "../icons/GitHub.astro";
+
+const TAGS = {
+  NEXT: {
+    name: "Next.js",
+    class: "bg-black text-white",
+    icon: NextJS,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+  },
+};
+
+const PROJECTS = [
+  {
+    title: "Calculadora JavaFX - Proyecto en Java",
+    description:
+      "Calculadora funcional hecha con JavaFX, soporte para teclado, operadores y paréntesis. Incluye interfaz moderna y soporte para entrada desde teclado.",
+    link: "https://github.com/pedrotrabubu/calculadora-javafx",
+    github: "https://github.com/pedrotrabubu/calculadora-javafx",
+    video: "/Videos/Calculadora2.mp4",
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  },
+  {
+    title: "Domaine du Salt - Página React Multilenguaje",
+    description:
+      "Proyecto web desarrollado con React e i18next para soporte multilenguaje. Página en construcción con integración futura de base de datos MySQL. Diseño moderno, responsive y preparado para despliegue.",
+    link: "https://github.com/PedroTrabubu/Domaine-Du-Salt",
+    github: "https://github.com/PedroTrabubu/Domaine-Du-Salt",
+    video: "/Videos/ChambreCapturaIntento2.mp4",
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  },
+];
+---
+
+<div class="flex flex-col gap-y-16 mt-25">
+  {
+    PROJECTS.map(({ video, title, description, tags, link, github }) => (
+      <article class="flex flex-col items-center space-y-8 md:flex-row md:space-x-8 md:space-y-0 group">
+        <!-- 🎬 Contenedor del video -->
+        <div class="w-full md:w-1/2 flex justify-center">
+          <div
+            class="relative overflow-hidden rounded-xl shadow-xl border border-gray-700/40 bg-black max-w-lg transition duration-500 ease-in-out transform md:group-hover:-translate-y-1 md:group-hover:shadow-2xl"
+          >
+            <video
+              class="lazy-video w-full h-full object-cover aspect-video object-center"
+              preload="none"
+              muted
+              loop
+              playsinline
+              autoplay
+            >
+              <source src={video} type="video/mp4" />
+              Tu navegador no soporta la reproducción de video.
+            </video>
+          </div>
+        </div>
+
+        <!-- 📝 Descripción -->
+        <div class="w-full md:w-1/2 md:max-w-lg">
+          <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+            {title}
+          </h3>
+
+          <ul class="flex flex-row mt-2 mb-2 gap-x-2">
+            {tags.map((tag) => (
+              <li>
+                <span
+                  class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
+                >
+                  <tag.icon class="size-4" />
+                  {tag.name}
+                </span>
+              </li>
+            ))}
+          </ul>
+
+          <div class="mt-2 text-gray-700 dark:text-gray-400">
+            {description}
+          </div>
+
+          <div class="mt-4 flex gap-4">
+            <a
+              href={link}
+              target="_blank"
+              class="text-blue-500 hover:underline font-medium"
+              >Ver proyecto</a
+            >
+            <a
+              href={github}
+              target="_blank"
+              class="text-gray-500 hover:text-gray-300"
+              >GitHub</a
+            >
+          </div>
+        </div>
+      </article>
+    ))
+  }
+</div>
+
+<!-- Script para lazy load de videos -->
+<script>
+  const videos = document.querySelectorAll(".lazy-video");
+  const options = { threshold: 0.25 };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const video = entry.target;
+        if (video.paused) video.play();
+      } else {
+        entry.target.pause();
+      }
+    });
+  }, options);
+
+  videos.forEach((video) => observer.observe(video));
+</script>

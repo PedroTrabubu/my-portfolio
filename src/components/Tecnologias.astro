@@ -41,6 +41,11 @@ const categorias: { title: string; items: Tecnologia[] }[] = [
         name: "Tomcat",
         src: "/IconosTecnologias/tomcat-svgrepo-com.svg",
       },
+    ],
+  },
+  {
+    title: "Bases de datos",
+    items: [
       {
         name: "MySQL",
         srcLight: "/IconosTecnologias/mysql-wordmark-light.svg",
@@ -76,19 +81,31 @@ const categorias: { title: string; items: Tecnologia[] }[] = [
 ];
 ---
 
-<section id="tecnologias" class="w-full mt-20">
-  <h4 class="text-2xl font-semibold mb-10 text-gray-900 dark:text-white">
-    Tecnologías
-  </h4>
+<section id="tecnologias" class="w-screen mt-24">
+  <h3
+    class="text-3xl md:text-4xl text-center font-bold tracking-tight text-gray-900 dark:text-white"
+  >
+    Habilidades técnicas
+  </h3>
 
-  <div class="flex flex-col gap-10">
+  <p
+    class="text-left text-gray-700 dark:text-gray-300 mt-6 max-w-3xl mx-auto leading-relaxed text-lg"
+  >
+    A lo largo de mi formación y experiencia práctica he desarrollado una base
+    sólida en las principales tecnologías del ecosistema web. Disfruto
+    explorando nuevas herramientas, optimizando procesos y aplicando buenas
+    prácticas para crear soluciones eficientes, escalables y centradas en la
+    experiencia del usuario.
+  </p>
+
+  <div class="flex flex-col gap-8 mt-10">
     {
       categorias.map((cat) => (
         <div class="p-4 rounded-xl bg-gray-50 dark:bg-gray-900 shadow-sm">
-          <h5 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-300 text-center">
+          <h5 class="text-xl font-semibold mb-6 text-gray-800 dark:text-gray-300 text-center">
             {cat.title}
           </h5>
-          <div class="flex flex-wrap justify-center gap-6">
+          <div class="flex flex-wrap justify-center gap-12">
             {cat.items.map((tech: Tecnologia) => (
               <div class="flex flex-col items-center group">
                 {tech.srcLight ? (
