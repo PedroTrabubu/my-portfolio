@@ -37,6 +37,12 @@ const PROJECTS = [
   },
 ];
 ---
+<section id="proyectos" class="w-full mt-24">
+<h2
+    class="text-3xl md:text-4xl text-center font-bold tracking-tight text-gray-900 dark:text-white"
+  >
+    Proyectos
+  </h2>
 
 <div class="flex flex-col gap-y-16 mt-25">
   {
@@ -88,7 +94,7 @@ const PROJECTS = [
             <a
               href={link}
               target="_blank"
-              class="text-blue-500 hover:underline font-medium"
+              class="text-green-600 hover:underline font-medium"
               >Ver proyecto</a
             >
             <a
@@ -103,19 +109,19 @@ const PROJECTS = [
     ))
   }
 </div>
-
+</section>
 <!-- Script para lazy load de videos -->
 <script>
-  const videos = document.querySelectorAll(".lazy-video");
+  const videos = document.querySelectorAll<HTMLVideoElement>(".lazy-video");
   const options = { threshold: 0.25 };
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
+      const video = entry.target as HTMLVideoElement;
       if (entry.isIntersecting) {
-        const video = entry.target;
         if (video.paused) video.play();
       } else {
-        entry.target.pause();
+        video.pause();
       }
     });
   }, options);

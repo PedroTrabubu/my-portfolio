@@ -34,12 +34,29 @@ const experiences = [
 ];
 ---
 
-<ol class="items-center sm:flex">
-  {
-    experiences.map((exp, index) => (
-      <li class="relative mb-6 sm:mb-0">
-        <ExperienceItem {...exp} isLast={index === experiences.length - 1} />
-      </li>
-    ))
-  }
-</ol>
+<section id="experiencia" class="w-full mt-20">
+  <h2
+    class="text-3xl md:text-4xl text-center font-bold tracking-tight text-gray-900 dark:text-white"
+  >
+    Experiencia laboral
+  </h2>
+  <p
+    class="text-left text-gray-700 dark:text-gray-300 mt-6 max-w-3xl mx-auto leading-relaxed text-lg pb-8"
+  >
+    A lo largo de mi formación y experiencia práctica he desarrollado una base
+    sólida en las principales tecnologías del ecosistema web. Disfruto
+    explorando nuevas herramientas, optimizando procesos y aplicando buenas
+    prácticas para crear soluciones eficientes, escalables y centradas en la
+    experiencia del usuario.
+  </p>
+
+  <ol class="items-center sm:flex">
+    {
+      experiences.map((exp, index) => (
+        <li class="relative mb-6 sm:mb-0">
+          <ExperienceItem {...exp} isLast={index === experiences.length - 1} />
+        </li>
+      ))
+    }
+  </ol>
+</section>
