@@ -24,11 +24,15 @@ import GitHub from "../icons/GitHub.astro";
   <div class="md:w-2/3 text-center md:text-left">
     <div class="flex flex-col items-center md:items-start gap-2">
       <h1
-        class="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-white flex items-center gap-3"
+        class="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-white flex flex-col md:flex-row items-center gap-3"
       >
-        ¡Hola! Soy <span class="text-green-600 dark:text-green-300"
-          >Pedro Blanquer</span
+        <span>¡Hola! Soy</span>
+        <span
+          id="typewriter"
+          class="text-green-600 dark:text-green-300 relative inline-block min-w-[180px] border-r-2 border-green-600 dark:border-green-300 pr-1 animate-cursor"
         >
+          Pedro Blanquer
+        </span>
       </h1>
     </div>
 
@@ -39,11 +43,10 @@ import GitHub from "../icons/GitHub.astro";
         >Desarrollador Full Stack Junior</strong
       >
       con formación en <strong>Trabajo Social</strong> y pasión por la tecnología.
-      Hace tres años decidí reinventarme y orientar mi carrera hacia el <strong
-        >desarrollo web</strong
-      >. Soy <strong>trilingüe</strong> — Español, Inglés y Francés — y combino mi
-      visión humana con habilidades técnicas para crear experiencias digitales centradas
-      en las personas.
+      Hace tres años decidí reinventarme y orientar mi carrera hacia el
+      <strong>desarrollo web</strong>. Soy <strong>trilingüe</strong> — Español,
+      Inglés y Francés — y combino mi visión humana con habilidades técnicas para
+      crear experiencias digitales centradas en las personas.
     </p>
 
     <ul class="flex flex-col items-left gap-4 mt-10">
@@ -77,12 +80,74 @@ import GitHub from "../icons/GitHub.astro";
           <span>GitHub</span>
         </a>
       </li>
+
       <!-- Badge centrado debajo de los botones -->
       <li>
-        <a href="#" class="inline-flex justify-center w-full mt-4">
+        <a
+          href="https://www.linkedin.com/in/pedro-blanquer-cerro-b3b71a350/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex justify-center w-full mt-4"
+        >
           <Badge>En búsqueda de prácticas</Badge>
         </a>
       </li>
     </ul>
   </div>
 </div>
+
+<style>
+  @keyframes blink {
+    0%,
+    100% {
+      border-color: transparent;
+    }
+    50% {
+      border-color: currentColor;
+    }
+  }
+
+  .animate-cursor {
+    animation: blink 1s step-end infinite;
+  }
+</style>
+
+<script type="module">
+  const phrases = [
+    "Pedro Blanquer",
+    "Junior pero proactivo.",
+    "Creativo.",
+    "Responsable.",
+    "Colaborador.",
+    "Amante del deporte.",
+    "Fan del café.",
+  ];
+
+  const el = document.getElementById("typewriter");
+  let phraseIndex = 0;
+  let charIndex = 0;
+  let deleting = false;
+
+  const type = () => {
+    const current = phrases[phraseIndex];
+    if (!deleting) {
+      // Escribiendo
+      el.textContent = current.slice(0, ++charIndex);
+      if (charIndex === current.length) {
+        deleting = true;
+        setTimeout(type, 3000); // pausa antes de borrar
+        return;
+      }
+    } else {
+      // Borrando
+      el.textContent = current.slice(0, --charIndex);
+      if (charIndex === 0) {
+        deleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+      }
+    }
+    setTimeout(type, deleting ? 50 : 100); // velocidad typing/borrado
+  };
+
+  type();
+</script>
