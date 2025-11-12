@@ -1,0 +1,54 @@
+---
+// Footer.astro
+import LinkedInIcon from "../icons/LinkedIn.astro";
+import LinkedInNormalColor from "../icons/LinkedInNormalColor.astro";
+import Gmail from "../icons/Gmail.astro";
+import GitHub from "../icons/GitHub.astro";
+import GitHubNormalColorNegro from "../icons/GitHubNormalColorNegro.astro";
+import GitHubNormalColorBlanco from "../icons/GitHubNormalColorBlanco.astro";
+import GitHub from "../icons/GitHub.astro";
+import GitHubNormalColor from "../icons/GitHubNormalColor.astro";
+---
+
+<footer class="w-full bg-white/90 dark:bg-gray-950/90 backdrop-blur-md border-t border-gray-200 dark:border-gray-800 py-8 mt-auto">
+  <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
+    
+    <!-- Menu de navegación -->
+    <ul class="flex flex-wrap gap-4 text-gray-700 dark:text-gray-300 font-medium justify-center md:justify-start">
+      <li><a href="#idiomas" class="hover:text-green-600 transition">Idiomas</a></li>
+      <li><a href="#tecnologias" class="hover:text-green-600 transition">Tecnologías</a></li>
+      <li><a href="#proyectos" class="hover:text-green-600 transition">Proyectos</a></li>
+      <li><a href="#experiencia" class="hover:text-green-600 transition">Experiencia</a></li>
+      <li><a href="#sobre-mi" class="hover:text-green-600 transition">Sobre mí</a></li>
+      <li><a href="#contact" class="hover:text-green-600 transition">Contacto</a></li>
+    </ul>
+
+    <!-- Redes sociales -->
+    <div class="flex gap-4 justify-center md:justify-end">
+      <a href="mailto:pedro.blanquer.cerro@gmail.com" class="hover:scale-110 transition-transform">
+        <Gmail class="w-5 h-5 text-green-600 dark:text-green-300" />
+      </a>
+      <a href="https://www.linkedin.com/in/pedro-blanquer-cerro-b3b71a350/" target="_blank" rel="noopener noreferrer" class="hover:scale-110 transition-transform">
+        <LinkedInNormalColor class="w-5 h-5 fill-green-600 dark:fill-green-300" />
+      </a>
+<a 
+  href="https://github.com/PedroTrabubu" 
+  target="_blank" 
+  rel="noopener noreferrer" 
+  class="hover:scale-110 transition-transform"
+>
+  <!-- Logo oscuro (modo claro) -->
+  <GitHubNormalColorNegro class="w-5 h-5 block dark:hidden" />
+
+  <!-- Logo blanco (modo oscuro) -->
+  <GitHubNormalColorBlanco class="w-5 h-5 hidden dark:block" />
+</a>
+
+    </div>
+  </div>
+
+  <!-- Copyright -->
+  <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-6">
+    &copy; {new Date().getFullYear()} Pedro Blanquer. Todos los derechos reservados.
+  </p>
+</footer>

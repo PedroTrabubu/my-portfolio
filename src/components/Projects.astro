@@ -1,19 +1,39 @@
 ---
-import GitHub from "../icons/GitHub.astro";
-import NextJS from "../icons/GitHub.astro";
-import Tailwind from "../icons/GitHub.astro";
+import GITHUB from "../icons/GitHub.astro";
+import React from "../icons/React.astro";
+import Java from "../icons/Java.astro"
+import Spring from "../icons/Spring.astro";
+import MYSQL from "../icons/MySql.astro";
+
 
 const TAGS = {
-  NEXT: {
-    name: "Next.js",
-    class: "bg-black text-white",
-    icon: NextJS,
-  },
-  TAILWIND: {
-    name: "Tailwind CSS",
+  GITHUB: {
+    name: "GitHub",
     class: "bg-[#003159] text-white",
-    icon: Tailwind,
+    icon: GITHUB,
   },
+
+  JAVA: {
+    name: "Java",
+    class: "bg-[#003159] text-white",
+    icon: Java,
+  },
+  SPRING: {
+    name: "Spring",
+    class: "bg-[#003159] text-white",
+    icon: Spring,
+  },
+  REACT: {
+    name: "React",
+    class: "bg-[#003159] text-white",
+    icon: React,
+  },
+  MYSQL: {
+    name: "MySQL",
+    class: "bg-[#003159] text-white",
+    icon: MYSQL,
+  },
+
 };
 
 const PROJECTS = [
@@ -21,10 +41,10 @@ const PROJECTS = [
     title: "Calculadora JavaFX - Proyecto en Java",
     description:
       "Calculadora funcional hecha con JavaFX, soporte para teclado, operadores y paréntesis. Incluye interfaz moderna y soporte para entrada desde teclado.",
-    link: "https://github.com/pedrotrabubu/calculadora-javafx",
-    github: "https://github.com/pedrotrabubu/calculadora-javafx",
+    link: "https://github.com/PedroTrabubu/SimpleCalculator",
+    github: "https://github.com/PedroTrabubu/SimpleCalculator",
     video: "/Videos/Calculadora2.mp4",
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
+    tags: [TAGS.JAVA,TAGS.GITHUB],
   },
   {
     title: "Domaine du Salt - Página React Multilenguaje",
@@ -33,7 +53,7 @@ const PROJECTS = [
     link: "https://github.com/PedroTrabubu/Domaine-Du-Salt",
     github: "https://github.com/PedroTrabubu/Domaine-Du-Salt",
     video: "/Videos/ChambreCapturaIntento2.mp4",
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
+    tags: [TAGS.REACT],
   },
   {
     title: "API REST Gestión de Productos - Spring Boot & MySQL",
@@ -42,7 +62,7 @@ const PROJECTS = [
     link: "https://github.com/pedrotrabubu/api-rest-productos",
     github: "https://github.com/pedrotrabubu/api-rest-productos",
     video: "/Videos/Spring.mp4",
-    tags: [TAGS.NEXT, TAGS.NEXT],
+    tags: [TAGS.SPRING,TAGS.MYSQL,TAGS.GITHUB],
   },
   
 ];
@@ -56,7 +76,7 @@ const PROJECTS = [
 
 <div class="flex flex-col gap-y-16 mt-25">
   {
-    PROJECTS.map(({ video, title, description, tags, link, github }) => (
+    PROJECTS.map(({ video, title, description, tags, link }) => (
       <article class="flex flex-col items-center space-y-8 md:flex-row md:space-x-8 md:space-y-0 group">
         <!-- 🎬 Contenedor del video -->
         <div class="w-full md:w-1/2 flex justify-center">
@@ -89,7 +109,7 @@ const PROJECTS = [
                 <span
                   class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
                 >
-                  <tag.icon class="size-4" />
+                  <tag.icon class="size-5 h5" />
                   {tag.name}
                 </span>
               </li>
@@ -105,13 +125,7 @@ const PROJECTS = [
               href={link}
               target="_blank"
               class="text-green-600 hover:underline font-medium"
-              >Ver proyecto</a
-            >
-            <a
-              href={github}
-              target="_blank"
-              class="text-gray-500 hover:text-gray-300"
-              >GitHub</a
+              >Ver proyecto en GitHub</a
             >
           </div>
         </div>
