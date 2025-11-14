@@ -1,3 +1,7 @@
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+body {
+  font-family: 'InterVariable', ui-sans-serif, system-ui;
+}
